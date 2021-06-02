@@ -9,9 +9,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let anonymManager = AnonymManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        view.backgroundColor = .purple
+        
+        anonymManager.fetchPosts { result in
+            switch result {
+            case .success(let posts):
+                print(posts)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 
 
