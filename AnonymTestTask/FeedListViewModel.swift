@@ -12,6 +12,7 @@ protocol FeedListViewModelProtocol {
     func fetchPosts(completion: @escaping () -> Void)
     func numberOfRows() -> Int
     func cellViewModel(at indexPath: IndexPath) -> FeedListCellViewModelProtocol
+    func viewModelForSelectedRow(at indexPath: IndexPath) -> FeedDetailViewModelProtocol
 }
 
 final class FeedListViewModel: FeedListViewModelProtocol {
@@ -51,6 +52,11 @@ final class FeedListViewModel: FeedListViewModelProtocol {
     func cellViewModel(at indexPath: IndexPath) -> FeedListCellViewModelProtocol {
         let post = postsArray[indexPath.row]
         return FeedListCellViewModel(post: post)
+    }
+    
+    func viewModelForSelectedRow(at indexPath: IndexPath) -> FeedDetailViewModelProtocol {
+        let post = postsArray[indexPath.row]
+        return FeedDetailViewModel(post: post)
     }
     
 }

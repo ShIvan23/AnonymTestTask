@@ -81,4 +81,10 @@ extension FeedListViewController: UITableViewDataSource {
 
 extension FeedListViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let detailViewModel = viewModel.viewModelForSelectedRow(at: indexPath)
+        let detailVC = FeedDetailViewController(viewModel: detailViewModel)
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }

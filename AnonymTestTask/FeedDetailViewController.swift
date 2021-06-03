@@ -7,23 +7,52 @@
 
 import UIKit
 
-class FeedDetailViewController: UIViewController {
-
+final class FeedDetailViewController: UIViewController {
+    
+    // MARK: - Private Properties
+    
+    private(set) var viewModel: FeedDetailViewModelProtocol {
+        didSet {
+            setupUI()
+        }
+    }
+    
+    private lazy var mainView = FeedDetailView()
+    
+    // MARK: - Initializers
+    
+    init(viewModel: FeedDetailViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Life Cycle
+    
+    override func loadView() {
+        view = mainView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Private Methods
+    
+    private func setupUI() {
+        mainView.authorNameLabel.text = viewModel.authorName
+        mainView.likesLabel.text = viewModel.likes
+        if let authorImageURL = viewModel.authorImage {
+            mainView.authorImageView.loadImage(by: authorImageURL)
+        }
+        if let postImageURL = viewModel.postImage {
+            mainView.postImageView.loadImage(by: postImageURL)
+        }
     }
-    */
+    
 
 }

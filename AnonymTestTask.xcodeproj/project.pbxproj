@@ -25,6 +25,7 @@
 		2CA42BBA2668E58900C61B99 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA42BB92668E58900C61B99 /* UIImageView+Extension.swift */; };
 		2CA42BBF266901C300C61B99 /* FeedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA42BBE266901C300C61B99 /* FeedDetailViewController.swift */; };
 		2CA42BC1266901D000C61B99 /* FeedDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA42BC0266901D000C61B99 /* FeedDetailViewModel.swift */; };
+		2CA42BC3266904B500C61B99 /* FeedDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA42BC2266904B500C61B99 /* FeedDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		2CA42BB92668E58900C61B99 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		2CA42BBE266901C300C61B99 /* FeedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailViewController.swift; sourceTree = "<group>"; };
 		2CA42BC0266901D000C61B99 /* FeedDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailViewModel.swift; sourceTree = "<group>"; };
+		2CA42BC2266904B500C61B99 /* FeedDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				2CA42BBE266901C300C61B99 /* FeedDetailViewController.swift */,
+				2CA42BC2266904B500C61B99 /* FeedDetailView.swift */,
 				2CA42BC0266901D000C61B99 /* FeedDetailViewModel.swift */,
 			);
 			name = FeedDetail;
@@ -247,6 +250,7 @@
 				2C28EDCD2667C93D00B94BAA /* PostForJSON.swift in Sources */,
 				2C28EDB02667BF1D00B94BAA /* AppDelegate.swift in Sources */,
 				2C28EDCF2667DBBB00B94BAA /* FeedListViewController.swift in Sources */,
+				2CA42BC3266904B500C61B99 /* FeedDetailView.swift in Sources */,
 				2C28EDE12667EDB400B94BAA /* FeedListCellViewModel.swift in Sources */,
 				2C28EDD22667DBEE00B94BAA /* FeedListViewModel.swift in Sources */,
 				2C28EDD72667DDFF00B94BAA /* UIView+Extension.swift in Sources */,

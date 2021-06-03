@@ -21,12 +21,12 @@ struct PostForJSON: Decodable {
         let stats: Stats
         
         struct Contents: Decodable {
-            let data: DataImagePost
+            let data: DataImagePost?
             
             struct DataImagePost: Decodable {
-                let original: Original?
+                let medium: Medium?
                 
-                struct Original: Decodable {
+                struct Medium: Decodable {
                     let url: String
                 }
             }
