@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias PostsResult = (Result<Post, Error>) -> Void
+typealias PostsResult = (Result<PostForJSON, Error>) -> Void
 
 final class AnonymManager {
     

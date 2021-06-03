@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+protocol FeedDetailViewModelProtocol {
+    
+}
+
+final class FeedDetailViewModel: FeedDetailViewModelProtocol {
+    
+}

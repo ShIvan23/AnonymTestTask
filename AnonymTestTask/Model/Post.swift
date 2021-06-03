@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct Post {
+    let postImage: String
+    let authorName: String
+    let authorImage: String
+    let likes: Int
+}

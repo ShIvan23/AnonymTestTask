@@ -1,5 +1,5 @@
 //
-//  Post.swift
+//  PostForJSON.swift
 //  AnonymTestTask
 //
 //  Created by Ivan on 02.06.2021.
@@ -24,9 +24,9 @@ struct PostForJSON: Decodable {
             let data: DataImagePost
             
             struct DataImagePost: Decodable {
-                let medium: Medium?
+                let original: Original?
                 
-                struct Medium: Decodable {
+                struct Original: Decodable {
                     let url: String
                 }
             }

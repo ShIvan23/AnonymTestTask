@@ -31,15 +31,5 @@ final class RequestService: RequestServiceProtocol {
         }
         
         return URLRequest(url: url)
-        
-        
-//        if isFirstRequest {
-//            guard let url = URL(string: "\(baseURL)?first=20") else { return nil }
-//            isFirstRequest = false
-//            return URLRequest(url: url)
-//        } else {
-//
-//        }
-        
     }
 }
