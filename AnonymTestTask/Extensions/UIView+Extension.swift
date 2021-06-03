@@ -1,5 +1,5 @@
 //
-//  Post.swift
+//  UIView+Extension.swift
 //  AnonymTestTask
 //
 //  Created by Ivan on 02.06.2021.
