@@ -11,11 +11,7 @@ final class FeedDetailViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private(set) var viewModel: FeedDetailViewModelProtocol {
-        didSet {
-            setupUI()
-        }
-    }
+    private(set) var viewModel: FeedDetailViewModelProtocol
     
     private lazy var mainView = FeedDetailView()
     
@@ -38,7 +34,7 @@ final class FeedDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupUI()
     }
     
     // MARK: - Private Methods

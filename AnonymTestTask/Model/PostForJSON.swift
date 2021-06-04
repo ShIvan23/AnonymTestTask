@@ -12,7 +12,7 @@ struct PostForJSON: Decodable {
     
     struct DataPosts: Decodable {
         let items: [Items]
-        let cursor: String
+        let cursor: String?
     }
     
     struct Items: Decodable {
@@ -21,12 +21,12 @@ struct PostForJSON: Decodable {
         let stats: Stats
         
         struct Contents: Decodable {
-            let data: DataImagePost?
+            let data: DataImagePost
             
             struct DataImagePost: Decodable {
-                let medium: Medium?
+                let original: Original?
                 
-                struct Medium: Decodable {
+                struct Original: Decodable {
                     let url: String
                 }
             }
@@ -34,10 +34,10 @@ struct PostForJSON: Decodable {
         
         struct Author: Decodable {
             let name: String
-            let photo: Photo
+            let photo: Photo?
             
             struct Photo: Decodable {
-                let data: DataImageAuthor
+                let data: DataImageAuthor?
                 
                 struct DataImageAuthor: Decodable {
                     let small: Small?

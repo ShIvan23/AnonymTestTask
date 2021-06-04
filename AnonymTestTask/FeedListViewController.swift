@@ -17,6 +17,10 @@ class FeedListViewController: UIViewController {
                 guard let self = self else { return }
                 self.feedTableView.reloadData()
             }
+            viewModel.filterStateDidChanged = { [weak self] in
+                guard let self = self else { return }
+                self.feedTableView.reloadData()
+            }
         }
     }
     
@@ -28,21 +32,61 @@ class FeedListViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
-
+    
+    private let segmentControl: UISegmentedControl = {
+        let segmentControl = UISegmentedControl(frame: CGRect(x: 0, y: 0, width: 500, height: 50))
+        segmentControl.insertSegment(withTitle: "Most Popular", at: 0, animated: true)
+        segmentControl.insertSegment(withTitle: "Most Commented", at: 1, animated: true)
+        segmentControl.insertSegment(withTitle: "Created At", at: 2, animated: true)
+        return segmentControl
+    }()
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         customizeView()
         setConstraints()
         setViewModel()
+        setupNavigationController()
+        setupSegmentControl()
+    }
+    
+    // MARK: - Public Methods
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        guard scrollView == feedTableView,
+              (scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height else { return }
+
+        viewModel.fetchPosts { [weak self] in
+            guard let self = self else { return }
+            self.feedTableView.reloadData()
+        }
     }
     
     // MARK: - Private Methods
     
+    @objc private func segmentControlDidTaped() {
+        switch segmentControl.selectedSegmentIndex {
+        case 0: viewModel.setFilterState(to: .mostPopular)
+        case 1: viewModel.setFilterState(to: .mostCommented)
+        case 2: viewModel.setFilterState(to: .createdAt)
+        default: return
+        }
+    }
+    
     private func setViewModel() {
         viewModel = FeedListViewModel()
+    }
+    
+    private func setupNavigationController() {
+        navigationController?.navigationBar.topItem?.titleView = segmentControl
+        navigationController?.navigationBar.barTintColor = .white
+    }
+    
+    private func setupSegmentControl() {
+        segmentControl.addTarget(self, action: #selector(segmentControlDidTaped), for: .valueChanged)
     }
     
     private func customizeView() {

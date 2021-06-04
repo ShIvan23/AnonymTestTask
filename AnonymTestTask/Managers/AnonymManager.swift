@@ -26,4 +26,10 @@ final class AnonymManager {
         guard let request = requestService.postsRequest(cursor: requestService.cursor) else { return }
         dataTaskService.fetch(request: request, completionHandler: completion)
     }
+    
+    public func fetchPostsWithFilter(_ string: String, completion: @escaping PostsResult) {
+        
+        guard let request = requestService.postsRequestWithFilter(string) else { return }
+        dataTaskService.fetch(request: request, completionHandler: completion)
+    }
 }

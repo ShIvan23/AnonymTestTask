@@ -15,12 +15,14 @@ final class FeedDetailView: UIView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.image = UIImage(named: "defaultAvatar")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     public let authorNameLabel: UILabel = {
         let label = UILabel()
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -36,6 +38,7 @@ final class FeedDetailView: UIView {
     
     public let likesLabel: UILabel = {
         let label = UILabel()
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -63,13 +66,13 @@ final class FeedDetailView: UIView {
         [authorImageView, authorNameLabel, postImageView, likesLabel].forEach { addSubview($0) }
         
         let inset: CGFloat = 30
-        let authorImageSize: CGFloat = 50
+        let authorImageSize: CGFloat = 80
         
         NSLayoutConstraint.activate([
             authorImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: inset),
             authorImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             authorImageView.heightAnchor.constraint(equalToConstant: authorImageSize),
-            authorImageView.heightAnchor.constraint(equalToConstant: authorImageSize),
+            authorImageView.widthAnchor.constraint(equalToConstant: authorImageSize),
             
             authorNameLabel.topAnchor.constraint(equalTo: authorImageView.bottomAnchor, constant: inset),
             authorNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: inset),
@@ -78,7 +81,7 @@ final class FeedDetailView: UIView {
             postImageView.topAnchor.constraint(equalTo: authorNameLabel.bottomAnchor, constant: inset),
             postImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: inset),
             postImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -inset),
-            postImageView.heightAnchor.constraint(equalToConstant: self.bounds.height / 3),
+            postImageView.heightAnchor.constraint(equalToConstant: 250),
             
             likesLabel.topAnchor.constraint(equalTo: postImageView.bottomAnchor, constant: inset),
             likesLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: inset),

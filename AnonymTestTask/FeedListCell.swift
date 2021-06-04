@@ -37,7 +37,6 @@ class FeedListCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "noImage")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -66,6 +65,7 @@ class FeedListCell: UITableViewCell {
     // MARK: - Private Methods
     
     private func setupCell() {
+        clearCellForReuse()
         authorNameLabel.text = viewModel.authorName
         likesLabel.text = viewModel.likes
         if let authorImageURL = viewModel.authorImage {
@@ -74,6 +74,13 @@ class FeedListCell: UITableViewCell {
         if let postImageURL = viewModel.postImage {
             postImageView.loadImage(by: postImageURL)
         }
+    }
+    
+    private func clearCellForReuse() {
+        authorNameLabel.text = ""
+        likesLabel.text = ""
+        authorImageView.image = UIImage(named: "defaultAvatar")
+        postImageView.image = UIImage(named: "noImage")
     }
     
     private func setConstraints() {

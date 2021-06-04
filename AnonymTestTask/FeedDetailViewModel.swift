@@ -20,7 +20,7 @@ final class FeedDetailViewModel: FeedDetailViewModelProtocol {
     // MARK: - Public Properties
     
     var authorName: String {
-        post.authorName
+       "User name: \(post.authorName)"
     }
     
     var authorImage: URL? {

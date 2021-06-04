@@ -24,13 +24,15 @@ final class FeedListCellViewModel: FeedListCellViewModelProtocol {
     }
     
     var authorImage: URL? {
-        guard let url = URL(string: post.authorImage) else { return nil }
+        guard let url = URL(string: post.authorImage) else { return nil}
         return url
+//        post.authorImage
     }
     
     var postImage: URL? {
         guard let url = URL(string: post.postImage) else { return nil }
         return url
+//        post.postImage
     }
     
     var likes: String {
